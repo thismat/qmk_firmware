@@ -12,3 +12,6 @@ BACKLIGHT_ENABLE = yes      # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = yes
 VELOCIKEY_ENABLE = yes
 AUDIO_ENABLE = no
+
+VIA_ENABLE = yes
+LTO_ENABLE = yes
