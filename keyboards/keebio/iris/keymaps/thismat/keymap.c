@@ -13,20 +13,27 @@ enum layers {
     _MOUSE,
 };
 
-// Custom Keys
+// Tabs
 #define NXT_TAB LCTL(KC_TAB)
 #define PRV_TAB RCS(KC_TAB)
 
+// Hold layer changes
 #define MO_FN MO(_FN)
 #define MO_NAV MO(_NAV)
 #define MO_SYM MO(_SYM)
 
+// Toggles
 #define TG_GAME TG(_GAMING)
 #define TG_MOUS TG(_MOUSE)
 #define TG_NAV TG(_NAV)
 
+// Selections
 #define SELW_L RCS(KC_LEFT)
 #define SELW_R RCS(KC_RIGHT)
+
+// Mod-Taps
+#define RHT_CTL MT(MOD_LCTL, KC_RIGHT)
+#define DN_CTL  MT(MOD_LCTL, KC_DOWN)
 
 // Combos!
 
@@ -58,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
             KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         // ├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-            KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    MO_NAV,           MO_NAV,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+            KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    MO_SYM,           MO_SYM,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
         // └────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                           KC_LGUI, KC_LALT, MO_SYM,                    KC_SPC,  KC_ENT,  MO_FN
+                                           KC_LGUI, KC_LALT, LT(MO_NAV, KC_SPACE),      LT(MO_NAV, KC_SPACE),  KC_ENT,  MO_FN
                                        // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
         ),
 
@@ -84,9 +91,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
             XXXXXXX, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
         // ├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-            KC_LCTL, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT,XXXXXXX,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, KC_LCTL,
+            KC_LCTL, XXXXXXX, KC_LEFT, KC_DOWN, RHT_CTL, XXXXXXX,                            KC_LEFT, KC_DOWN,  KC_UP,   KC_RGHT, XXXXXXX, KC_LCTL,
         // ├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-            KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG_GAME,          XXXXXXX, SELW_L,  XXXXXXX, XXXXXXX, SELW_R,  XXXXXXX, KC_RSFT,
+            KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, SELW_L,  XXXXXXX, XXXXXXX, SELW_R,  XXXXXXX, KC_RSFT,
         // └────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                            XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX
                                        // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
