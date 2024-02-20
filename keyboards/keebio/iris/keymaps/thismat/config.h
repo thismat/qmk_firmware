@@ -25,8 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
 
-#define COMBO_COUNT 3
-
 // Mouse Keys Configuration
 #define MK_KINETIC_SPEED
 #define MOUSEKEY_INTERVAL 3
