@@ -35,6 +35,9 @@ enum layers {
 #define RHT_CTL MT(MOD_LCTL, KC_RIGHT)
 #define DN_CTL  MT(MOD_LCTL, KC_DOWN)
 
+// Spacebar / Layers
+#define SPC_NAV LT(MO_NAV, KC_SPACE)
+
 // Combos!
 
 // Single Key Combos
@@ -67,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
             KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    MO_SYM,           MO_SYM,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
         // └────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                           KC_LGUI, KC_LALT, LT(MO_NAV, KC_SPACE),      LT(MO_NAV, KC_SPACE),  KC_ENT,  MO_FN
+                                           KC_LGUI, KC_LALT, SPC_NAV,                   SPC_NAV, KC_ENT,  MO_FN
                                        // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
         ),
 
