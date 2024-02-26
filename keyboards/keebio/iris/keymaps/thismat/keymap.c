@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "keycodes.h"
+#include "quantum.h"
 #include "rgb_matrix.h"
 #include QMK_KEYBOARD_H
 
@@ -11,6 +12,13 @@ enum layers {
     _FN,
     _GAMING,
     _MOUSE,
+};
+
+// Custom keycodes
+enum custom_keycodes {
+    SAFE   = SAFE_RANGE,
+    PLS_EQ,
+    MIN_EQ,
 };
 
 // Tabs
@@ -82,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // ├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
             KC_LCTL, KC_GRV,  KC_TILD, XXXXXXX, XXXXXXX, KC_VOLU,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
         // ├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_HOME,          KC_END,  KC_PLUS, KC_EQL,  XXXXXXX, XXXXXXX, KC_BSLS, XXXXXXX,
+            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_HOME,          KC_END,  KC_PLUS, KC_EQL,  PLS_EQ,  MIN_EQ, KC_BSLS, XXXXXXX,
         // └────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                            XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, TG_MOUS
                                        // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -189,4 +197,23 @@ bool rgb_matrix_indicators_kb(void) {
 void keyboard_post_init_user(void) {
     rgb_matrix_mode(RGB_MATRIX_CYCLE_OUT_IN);
     rgb_matrix_set_speed(30);
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case PLS_EQ:
+            if (record->event.pressed) {
+                SEND_STRING("+=");
+            }
+
+            break;
+        case MIN_EQ:
+            if (record->event.pressed) {
+                SEND_STRING("-=");
+            }
+
+            break;
+    }
+
+    return true;
 }
